@@ -27,6 +27,11 @@ public class Requirement
     //Something adding tasks
   }
 
+  public void updateRequirementStatus(ArrayList<String> taskStatus){
+    //TO DO
+  }
+
+
   public void addTask(Task task)
   {
     tasks.add(task);
@@ -40,11 +45,12 @@ public class Requirement
       if (tasks.get(i).getTaskID() == taskID)
       {
         tasks.remove(i);
+        break; //Det er unik ID så når det er fundet kan vi godt stoppe
       }
     }
   }
 
-  public ArrayList<Task> getTasks()
+  public ArrayList<Task> getAllTasks()
   {
     return tasks;
   }

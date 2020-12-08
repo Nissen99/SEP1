@@ -67,4 +67,8 @@ public class Task
   public void addTaskHoursWorked(int hours){
     this.taskHoursWorked += hours;
   }
+
+  public void updateTaskStatus(String taskStatus){
+    //TO DO
+  }
 }

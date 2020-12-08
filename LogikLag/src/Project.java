@@ -12,8 +12,9 @@ public class Project
   private int projectHoursWorked;
   private String projectStatus;
 
-
-  public Project(String projectName, int projectEstimatedHours, Client client, TeamMemberList teamMemberList, MyDate projectDeadline){
+  public Project(String projectName, int projectEstimatedHours, Client client,
+      TeamMemberList teamMemberList, MyDate projectDeadline)
+  {
     this.projectName = projectName;
     this.projectEstimatedHours = projectEstimatedHours;
     this.client = client;
@@ -21,22 +22,80 @@ public class Project
     this.projectDeadline = projectDeadline.copy();
 
     this.projectStatus = "Not Started";
-
-    //Somthing adding reqirements
+    requirements = new ArrayList<>();
   }
 
-  public void appointProductOwner(int employeeID){
+
+  public Requirement getRequirement(int requirementID){
+    for (int i = 0; i < requirements.size(); i++)
+    {
+      if (requirements.get(i).getRequirementID() == requirementID){
+        return requirements.get(i);
+      }
+    }
+    return null; //Throw something idk
+  }
+
+
+
+
+  public void addRequirement(Requirement requirement)
+  {
+    requirements.add(requirement);
+  }
+
+  public void removeRequirement(int requirementID)
+  {
+    for (int i = 0; i < requirements.size(); i++)
+    {
+      if (requirements.get(i).getRequirementID() == requirementID)
+      {
+        requirements.remove(i);
+        break; //Det er unik ID så når det er fundet kan vi godt stoppe
+      }
+    }
+  }
+
+  //Der kan kun være 1 product owner/scrum master, så hvis en ny bliver sat
+  // laver vi den nuværende til "team member" igen
+  public void appointScrumMaster(int employeeID)
+  {
+
     for (int i = 0; i < teamMemberList.getNumberOfTeamMembers(); i++)
     {
-      if (teamMemberList.getAllTeamMembers().get(i).getRole().equals("product owner")){
+      if (teamMemberList.getAllTeamMembers().get(i).getRole().equals("scrum master"))
+      {
         teamMemberList.getAllTeamMembers().get(i).setRole("team member");
       }
     }
 
+    for (int i = 0; i < teamMemberList.getNumberOfTeamMembers(); i++)
+    {
+      if (teamMemberList.getAllTeamMembers().get(i).getEmployeeID()
+          == employeeID)
+      {
+        teamMemberList.getAllTeamMembers().get(i).setRole("scrum master");
+      }
+    }
+  }
+
+  public void appointProductOwner(int employeeID)
+  {
 
     for (int i = 0; i < teamMemberList.getNumberOfTeamMembers(); i++)
     {
-      if (teamMemberList.getAllTeamMembers().get(i).getEmployeeID() == employeeID){
+      if (teamMemberList.getAllTeamMembers().get(i).getRole()
+          .equals("product owner"))
+      {
+        teamMemberList.getAllTeamMembers().get(i).setRole("team member");
+      }
+    }
+
+    for (int i = 0; i < teamMemberList.getNumberOfTeamMembers(); i++)
+    {
+      if (teamMemberList.getAllTeamMembers().get(i).getEmployeeID()
+          == employeeID)
+      {
         teamMemberList.getAllTeamMembers().get(i).setRole("product owner");
       }
     }
@@ -47,7 +106,7 @@ public class Project
     return client;
   }
 
-  public ArrayList<Requirement> getRequirements()
+  public ArrayList<Requirement> getAllRequirements()
   {
     return requirements;
   }

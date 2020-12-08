@@ -8,17 +8,20 @@ public class Employee
   public Employee(String employeeName)
   {
     this.employeeName = employeeName;
-    this.role = "Team member";
+    this.role = "Employee";
   }
 
   public void setRole(String role){
-
 this.role = role; //Switch case later
   }
 
-  public Employee copy(){
+  public Employee copy()
+  {
 
-    Employee placeHolder = this; //Måske virker det her ??
+    Employee placeHolder = new Employee(this.employeeName); //Måske virker det her ??
+    placeHolder.setRole(this.role);
+    placeHolder.employeeID = this.employeeID;
+    placeHolder.numberOfProjects = this.numberOfProjects;
 
     return placeHolder;
   }

@@ -21,7 +21,8 @@ public class TeamMemberList
   }
 
 
-  public void addTeamMember(Employee teamMember){
+  public void addTeamMember(Employee teamMember)
+  {
     employees.add(teamMember.copy());
     employees.get(getNumberOfTeamMembers()-1).setRole("team member");
   }
@@ -31,6 +32,7 @@ public class TeamMemberList
     {
       if (employees.get(i).getEmployeeID() == employeeID){
         employees.remove(i);
+        break; //Det er unik ID så når det er fundet kan vi godt stoppe
       }
     }
   }
