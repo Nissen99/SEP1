@@ -18,7 +18,7 @@ this.role = role; //Switch case later
 
   public Employee copy(){
 
-    Employee placeHolder = (Employee) this; //Måske virker det her ??
+    Employee placeHolder = this; //Måske virker det her ??
 
     return placeHolder;
   }
