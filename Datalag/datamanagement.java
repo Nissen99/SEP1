@@ -1,18 +1,20 @@
 package Datalag;
-import iEmployee
+import IEmployee;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import LogikLag
-public class datamanagement implements Serializable
-{
 
-    private employee employee;
-    private final ArrayList<String>
+public class datamanagement implements Serializable {
+
+
+    private final ArrayList<Employee> employees;
     private static final File EMPLOYEE_FILE = new File("Employee.txt");
-    private static final File EMPLOYEE_FILE = new File("Employee.txt")
+    private static final File TEAMMENBERS_FILE = new File("Employee.txt")
+    private static final File PROJECT_FILE = new File("Employee.txt");
+    FileWriter fileWriter;
 
 }
 
