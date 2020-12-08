@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/LogikLag/LogikLag.iml" filepath="$PROJECT_DIR$/LogikLag/LogikLag.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SEP1.iml" filepath="$PROJECT_DIR$/.idea/SEP1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Test/Test.iml" filepath="$PROJECT_DIR$/Test/Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Whatever/Whatever.iml" filepath="$PROJECT_DIR$/Whatever/Whatever.iml" />
+    </modules>
+  </component>
+</project>
